@@ -1,0 +1,17 @@
+<%- include("partials/header"); -%>
+
+    <h1>Edit Post <%=id%></h1>
+    <form class="" action="/storeedit/<%=id%>" method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="postTitleEdited" value="<%=title%>">
+        <label>Post</label>
+        <textarea id="my-expressjs-tinymce-app" class="form-control" name="postBodyEdited" rows="5" cols="30"><%=content%></textarea>
+        <label>Class</label>
+        <input class="form-control" type="text" name="classEdited"> 
+      </div>
+      <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    </form>
+    <br>
+
+<%- include("partials/footer"); -%>

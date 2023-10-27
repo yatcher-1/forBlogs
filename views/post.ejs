@@ -1,0 +1,17 @@
+<%- include("partials/header"); -%>
+
+  <div class="container">
+    <br>
+    <button class="btn btn-info">
+      <a href="/posts/edit/<%=id%>">Edit Post</a>
+    </button>
+    <button class="btn btn-info">
+      <a href="/posts/delete/<%=id%>">Delete Post</a>
+    </button>
+    <br>
+    <h1><%=title%></h1>
+    <p><%-content%></p>
+    <br>
+  </div>
+
+<%- include("partials/footer"); -%>
