@@ -13,6 +13,7 @@ const htmlPurify = domPurifier(new JSDOM().window);
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 const slug = require('mongoose-slug-generator');
+const PORT = process.env.PORT || 3000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -184,6 +185,6 @@ app.get("/posts/delete/:id", async function(req, res){
 });
 
 
-app.listen(3000, function() {
+app.listen(PORT, function() {
   console.log("Server started on port 3000");
 });
