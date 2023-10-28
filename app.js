@@ -44,6 +44,10 @@ const postSchema = new mongoose.Schema({
     slug: 'title',
     slug_padding_size: 2,
   },
+  is_deleted: {
+    type: Number,
+    default: 0,
+  },
 });
 
 postSchema.pre('validate', function(next){
@@ -165,7 +169,6 @@ app.post("/storeedit/:id", async function(req, res){
     const update = {
     title: req.body.postTitleEdited,
     content: req.body.postBodyEdited,
-    class: req.body.classEdited
    };
    await Post.findOneAndUpdate(filter, update);
     res.redirect("/");
@@ -177,7 +180,8 @@ app.post("/storeedit/:id", async function(req, res){
 app.get("/posts/delete/:id", async function(req, res){
   try{
     const filter = { _id: req.params.id };
-   await Post.findOneAndDelete(filter);
+    const update = { is_deleted: 1 }
+   await Post.findOneAndUpdate(filter, update);
     res.redirect("/");
   }catch(err){
     res.send(err);
