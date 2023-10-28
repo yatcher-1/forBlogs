@@ -126,7 +126,7 @@ app.get("/posts/:slug", function(req, res){
 });
 
 app.get("/posts", function(req, res){
-    Post.find({}).then((post)=>{
+    Post.find({is_deleted: 0}).then((post)=>{
       try {
         if(post){
           res.render("posts", {postsFound: post});
