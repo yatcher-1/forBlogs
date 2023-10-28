@@ -137,16 +137,6 @@ app.get("/posts", function(req, res){
     });
 });
 
-// app.get("/postsdelete", function(req, res){
-//     Post.deleteMany({}).then(()=>{
-//       try {
-//         return res.send("postsdeleted")
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     });
-// });
-
 app.get("/about", function(req, res){
   res.render("about", {aboutContent: aboutContent});
 });
